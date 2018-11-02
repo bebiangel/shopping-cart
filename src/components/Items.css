@@ -1,0 +1,26 @@
+.Item {
+  flex-grow: 1;
+  border: solid 1px #20c997;
+  margin: 1rem;
+}
+
+.Item > h2 {
+  text-align: center;
+}
+
+.Item > ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+
+  max-width: 900px;
+  width: 100%;
+}
+
+.Item li {
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #efefef;
+  font-size: 12px;
+  cursor: pointer;
+}

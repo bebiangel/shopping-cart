@@ -1,0 +1,9 @@
+.Cart {
+  flex-grow: 1;
+  border: 1px solid #22b8cf;
+  margin: 1rem;
+}
+
+.Cart > h2 {
+  text-align: center;
+}
