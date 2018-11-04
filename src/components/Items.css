@@ -24,3 +24,9 @@
   font-size: 12px;
   cursor: pointer;
 }
+
+.AddToCartButtonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

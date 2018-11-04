@@ -1,4 +1,6 @@
 .Shopping {
   display: flex;
   flex-direction: row;
+  margin: auto;
+  width: 80%;
 }

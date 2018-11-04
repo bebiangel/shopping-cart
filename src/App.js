@@ -1,12 +1,14 @@
 import React from "react";
+import { Provider } from "react-redux";
 import Shopping from "./containers/Shopping";
 import "antd/dist/antd.css";
+import store from "./store/index";
 
 const App = () => {
   return (
-    <div>
+    <Provider store={store}>
       <Shopping />
-    </div>
+    </Provider>
   );
 };
 
