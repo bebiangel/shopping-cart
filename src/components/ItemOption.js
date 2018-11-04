@@ -5,12 +5,12 @@ const Option = Select.Option;
 
 class ItemOption extends Component {
   //
-  changeColor() {
+  changeColor = e => {
     //
     const { item } = this.props;
 
-    this.props.onChangeColor();
-  }
+    this.props.onChangeColor({ id: item.id, color: e.target.value });
+  };
 
   render() {
     const {
@@ -25,7 +25,6 @@ class ItemOption extends Component {
       ...item.options
         .map(option => option.color)
         .filter((option, index, self) => {
-          // console.log(index, self.indexOf(option));
           return index === self.indexOf(option);
         })
     ];
@@ -45,8 +44,10 @@ class ItemOption extends Component {
     );
 
     const isSelectedColor = formItems.some(
-      formItem => formItem.id === item.id && (formItem.color && item.color)
+      formItem => formItem.id === item.id && formItem.color
     );
+
+    const formItem = formItems.find(formItem => formItem.id === item.id);
 
     return (
       <>
@@ -54,9 +55,14 @@ class ItemOption extends Component {
           <Button
             key={color}
             shape="circle"
-            icon={isSelectedColor ? "check" : ""}
+            icon={
+              isSelectedColor && (formItem && formItem.color === color)
+                ? "check"
+                : ""
+            }
             style={{ backgroundColor: color, margin: "0.1rem" }}
-            onClick={onChangeColor}
+            value={color}
+            onClick={this.changeColor}
           />
         ))}
 

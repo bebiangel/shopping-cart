@@ -2,5 +2,13 @@
   display: flex;
   flex-direction: row;
   margin: auto;
-  width: 80%;
+  width: 60%;
+}
+
+.Title {
+  margin: 2rem;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  width: 60%;
 }

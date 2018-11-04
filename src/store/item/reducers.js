@@ -239,14 +239,33 @@ export default function itemReducer(state = initState, action) {
   //
   switch (action.type) {
     //
-    case action.FETCH:
+    case actions.FETCH:
       return {};
 
-    case action.FETCH_LIST_SUCCESS:
+    case actions.FETCH_LIST_SUCCESS:
       return {};
 
-    case action.ADD_TO_CART:
+    case actions.ADD_TO_CART:
       return {};
+
+    case actions.CHANGE_COLOR:
+      if (state.formList.some(form => form.id === action.id)) {
+        return {
+          ...state,
+          formList: state.formList.map(item => {
+            if (item.id === action.id) {
+              return { ...item, color: action.color };
+            } else {
+              return item;
+            }
+          })
+        };
+      } else {
+        return {
+          ...state,
+          formList: [...state.formList, { id: action.id, color: action.color }]
+        };
+      }
 
     default:
       return state;

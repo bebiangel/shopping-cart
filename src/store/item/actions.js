@@ -7,9 +7,18 @@ const actions = {
 
   ADD_TO_CART: `${scope}_ADD_TO_CART`,
 
+  CHANGE_COLOR: `${scope}_CHANGE_COLOR`,
+  CHANGE_SIZE: `${scope}_CHANGE_SIZE`,
+
   // ## Define Action Creators
 
-  addToCart: ({ items }) => ({})
+  addToCart: ({ items }) => ({}),
+
+  onChangeColor: ({ id, color }) => ({
+    type: actions.CHANGE_COLOR,
+    id,
+    color
+  })
 };
 
 export { scope };
