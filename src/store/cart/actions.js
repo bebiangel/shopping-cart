@@ -7,7 +7,19 @@ const actions = {
 
   CHANGE_SIZE: `${scope}_CHANGE_SIZE`,
   CHANGE_COLOR: `${scope}_CHANGE_COLOR`,
-  CHANGE_QUANTITY: `${scope}_CHANGE_QUANTITY`
+  CHANGE_QUANTITY: `${scope}_CHANGE_QUANTITY`,
+
+  CLEAR_LIST: `${scope}_CLEAR_LIST`,
+
+  // ## Define Action Creators
+  fetchList: () => ({
+    type: actions.FETCH_LIST
+  }),
+  onChangeSize: () => ({}),
+
+  clearList: () => ({
+    type: actions.CLEAR_LIST
+  })
 };
 
 export { scope };

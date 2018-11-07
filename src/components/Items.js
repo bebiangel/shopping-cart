@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Items.css";
+// import "./Items.css";
 import { List, Card, Button, Select } from "antd";
 import ItemOption from "./ItemOption";
 import { randomImage } from "../common/randomImage";
@@ -28,7 +28,7 @@ class Itmes extends Component {
     } = this.props;
 
     return (
-      <div>
+      <>
         <List
           grid={{ gutter: 16, column: 3 }}
           dataSource={items}
@@ -61,7 +61,7 @@ class Itmes extends Component {
             </List.Item>
           )}
         />
-      </div>
+      </>
     );
   }
 }

@@ -1,3 +1,5 @@
+import { firebaseGoodsFetchList } from "./api";
+
 const scope = `ITEM`;
 const actions = {
   //
@@ -10,14 +12,20 @@ const actions = {
   CHANGE_COLOR: `${scope}_CHANGE_COLOR`,
   CHANGE_SIZE: `${scope}_CHANGE_SIZE`,
 
-  // ## Define Action Creators
+  CLEAR_LIST: `${scope}_CLEAR_LIST`,
 
+  // ## Define Action Creators
+  fetchList: () => firebaseGoodsFetchList(),
   addToCart: ({ items }) => ({}),
 
   onChangeColor: ({ id, color }) => ({
     type: actions.CHANGE_COLOR,
     id,
     color
+  }),
+
+  clearList: () => ({
+    type: actions.CLEAR_LIST
   })
 };
 

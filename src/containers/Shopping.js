@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import "./Shopping.css";
 import Itmes from "../components/Items";
-import Cart from "../components/Cart";
+
 import { Layout, Badge, Icon, Row, Col, Modal } from "antd";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
 import cartActions from "../store/cart/actions";
 import itemActions from "../store/item/actions";
+import { fetchList } from "../store/item/api";
 
 const { Header, Content, Footer } = Layout;
 
@@ -16,6 +17,12 @@ class Shopping extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+  }
+
+  componentDidMount() {
+    //
+    console.log(this.props.itemActions.fetchList());
+    // fetchList();
   }
 
   onAddToCart = () => {
@@ -47,54 +54,23 @@ class Shopping extends Component {
   render() {
     //
     return (
-      <Layout style={{ padding: "0 24px 24px" }}>
-        <Header
-          style={{
-            backgroundColor: "#4dabf7"
-          }}
-        >
-          <Row
-            style={{
-              display: "flex",
-              margin: "auto",
-              width: "60%"
-            }}
-          >
-            <Col span={6}>col-6</Col>
-            <Col span={6}>col-6</Col>
-            <Col span={6}>col-6</Col>
-            <Col span={6}>
-              <div
-                style={{
-                  display: "inline-flex",
-                  justifyContent: "right",
-                  alignItems: "right"
-                }}
-              >
-                <Badge count={5} dot>
-                  <Icon
-                    type="shopping-cart"
-                    theme="outlined"
-                    style={{ fontSize: "30px" }}
-                  />
-                </Badge>
-              </div>
-            </Col>
-          </Row>
-        </Header>
+      <Layout>
         <div className={"Title"}>
           <h2>상품목록</h2>
         </div>
-        <div className="Shopping">
-          <Itmes
-            items={this.props.item.list}
-            formItems={this.props.item.formList}
-            onAddToCart={this.onAddToCart}
-            onChangeSize={this.onChangeSize}
-            onChangeColor={this.props.itemActions.onChangeColor}
-            onChangeQuantity={this.onChangeQuantity}
-          />
-        </div>
+        <Row>
+          <Col span={14} offset={5}>
+            <Itmes
+              items={this.props.item.list}
+              formItems={this.props.item.formList}
+              onAddToCart={this.onAddToCart}
+              onChangeSize={this.onChangeSize}
+              onChangeColor={this.props.itemActions.onChangeColor}
+              onChangeQuantity={this.onChangeQuantity}
+            />
+          </Col>
+        </Row>
+        <div className="Shopping" />
       </Layout>
     );
   }
